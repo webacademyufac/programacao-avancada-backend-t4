@@ -15,7 +15,7 @@ let x = 10
 if(true){
     // escopo local
     let x = 20
-    console.log(this.x)
+    console.log(x)
 }
 // é incorreto utilizar var depois do EC6
 
@@ -55,7 +55,7 @@ console.log(typeof nothing)
 // array
 const languages = ['C++', 50, 'Python', 'JS']
 console.log(languages[1])
-console.log(typeof languages[1])
+console.log(typeof languages[2])
 
 // object literals
 // são usados quando a necessidade é de representar alguma entidade, como usuário, pessoa, produto...
@@ -93,7 +93,7 @@ console.log(text.slice(2,10))
 // mais sobre arrays
 
 // podem ser heterogêneos, ou seja, ter dados de tipos diferentes
-const chars = ['A', 'B', 'C', 'D', 88]
+const chars = ['A', 'B', 'C', 'D', 88, NaN]
 // length em um array retorna quantos dados estão lá dentro
 console.log(chars.length)
 // para chegar na última posição, tamanho-1 como índice
@@ -112,6 +112,12 @@ console.log(chars)
 // ----------
 
 // Desafio 01: desenvolva uma calculadora para as 4 operações básicas usando const com os dados vindo de um formulário. Dica: utilize um objeto do tipo FormData para obter os dados do formulário.
+
+function calculator(){
+    const objeto = new FormData(...)
+
+
+}
 
 // ----------
 
