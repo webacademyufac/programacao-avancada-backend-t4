@@ -114,9 +114,10 @@ console.log(chars)
 // Desafio 01: desenvolva uma calculadora para as 4 operações básicas usando const com os dados vindo de um formulário. Dica: utilize um objeto do tipo FormData para obter os dados do formulário.
 
 function calculator(){
-    const objeto = new FormData(...)
-
-
+    const objectForm = new FormData(document.querySelector('form'))
+    const n1 = parseInt(objectForm.get('n1'))
+    const n2 = parseInt(objectForm.get('n2'))
+    console.log(n1+n2)
 }
 
 // ----------
@@ -148,7 +149,6 @@ console.log(price)
 price = 30.49
 console.log(price)
 console.log(product.price)
-
 
 const vector = [3,7,2,45,99]
 // desestruturando um vetor
