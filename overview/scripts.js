@@ -150,6 +150,7 @@ price = 30.49
 console.log(price)
 console.log(product.price)
 
+
 const vector = [3,7,2,45,99]
 // desestruturando um vetor
 let [ v1, v2, ...otherVector ] = vector
@@ -175,12 +176,38 @@ const dogObject = JSON.parse(dogJson)
 console.log(dogObject)
 
 // caso haja algum erro na sintaxe, não pode ser considerado um JSON válido
-// const jsonErrado = '{'primeiro':'dado1','segundo':222,'terceiro':'dado3}'
+const jsonErrado = '{"primeiro":"dado1","segundo":222,"terceiro":"dado3"}'
 // const jsonErradoObject = JSON.parse(jsonErrado)
 
 // Desafio 02: Armazene 5 dados numéricos em um vetor. Em seguida, copie os dados para um objeto com as propriedades n1, n2, n3, n4 e n5. Em outras palavras, cada um dos cinco números deve ir para cada uma das cinco variáveis. Em seguida, utilize destructuring para copiar os valores para 5 variáveis. Finalmente, construa um objeto JSON com os valores das variáveis.
 
+const vetorDesafio02 = [1, 2, 3, 4, 5]
+const objetoDesafio02 = {
+    n1: vetorDesafio02[0],
+    n2: vetorDesafio02[1],
+    n3: vetorDesafio02[2],
+    n4: vetorDesafio02[3],
+    n5: vetorDesafio02[4],
+}
+const { n1, n2, n3, n4, n5 } = objetoDesafio02
+console.log(JSON.stringify( { n1, n2, n3, n4, n5 } ))
+
 // Desafio 03: Desenvolva uma calculadora que armazene em um objeto JSON o resultado das 4 operações básicas. Em outras palavras: crie um objeto calculadora, inicialize cada uma das operações da calculadora (que serão propriedades do objeto) com o resultado do processamento matemático vindo de duas variáveis inicializadas com valores estáticos e converta para um objeto JSON.
+
+//variáveis
+const var01Desafio03 = 10
+const var02Desafio03 = 20
+
+//objeto calculadora
+const objetoCalculadora = {
+    soma: var01Desafio03 + var02Desafio03,
+    sub: var01Desafio03 - var02Desafio03,
+    mult: var01Desafio03 * var02Desafio03,
+    div: var01Desafio03 / var02Desafio03
+}
+
+//conversão para objeto JSON
+console.log(JSON.stringify(objetoCalculadora))
 
 // estruturas
 
@@ -190,7 +217,7 @@ if(n > 10){ // operadores relacionais: > < >= <= == !=
     console.log('Teste de entrada no if.')
 }
 const texto = '0'
-if(texto === 0) // o operador de tríplice igualdade compara o valor e o tipo dos conteúdos
+if(texto == 0) // o operador de tríplice igualdade compara o valor e o tipo dos conteúdos
     console.log("Os dados são iguais.")
 else if(true) 
     console.log('Segundo if - if aninhado.')
@@ -213,13 +240,19 @@ while(contador < lista.length){
 
 const outraLista = ['a', 'b', 'd', 'e', 'c']
 for(let contador = 0; contador < outraLista.length; contador++)
-    console.log(`O elemento da
+    console.log(`O 'elemento' da
+
+
+
+
+
 vez é ${outraLista[contador]}.`) //template literais, ou template strings: conteúdo entre crases; a quebra de linha no editor de cógidos gera quebra de linha no navegador.
 
 // Desafio 04: Escreva o que aparece no log abaixo como template literals.
 const var1 = 5
 const var2 = 10
-const sumLiteral = 'Quinze é '+(var1+var2)+',\n e não '+(2*var1+var2)+'.'
+const sumLiteral = `Quinze é ${(var1+var2)},
+ e não ${(2*var1+var2)}.`
 console.log(sumLiteral)
 
 // ----------
@@ -279,7 +312,6 @@ const myArrowFunction = (a,b) => a+b
 console.log(myArrowFunction(5,2))
 
 //Desafio 05: Transforme a função a seguir em uma arrow function.
-
 /*
 function out(){
     let x = 7
@@ -289,6 +321,12 @@ function out(){
     return sumXand5()
 }
 */
+
+const out = () => {
+    let x = 7
+    return () => x+5
+}
+console.log(out()())
 
 // reduzindo o formato de escrita: quando tempos apenas uma propriedade de um objeto sendo utilizada na função anônima, podemos escrever o parâmetro como object literal especificando a propriedade do objeto que será trabalhada e utilizá-la sem que seja necessário escrever o nome do objeto
 const namesLength = names.map( ({length}) => length )
@@ -300,7 +338,7 @@ console.log(namesLength)
 // significa fechamento
 // trata-se de mais um escopo possível, considerando que uma função conheçe o escopo de onde foi declarada e pode usar as variáveis contidas nele, não sendo, nesse caso, nem escopo global, nem escopo local
 let varX = 50
-function out(){
+function out2(){
     let varX = 35
     function sumXand5(){
         let varX = 10
@@ -308,7 +346,7 @@ function out(){
     }
      return sumXand5()
 }
-console.log(out())
+console.log(out2())
 
 // Desafio 06: Faça um esquema em que um código declara uma variável (let) e uma função faz a soma do valor da variável com um valor estático (5, por exemplo) como retorno. Outro código importa o primeiro e declara uma variável com o mesmo nome e outro valor. Em seguida, chama a função do primeiro código. Qual valor será exibido?
 // Utilizar o artigo disponível no endereço https://www.horadecodar.com.br/2020/08/13/como-incluir-um-arquivo-de-javascript-em-outro/
