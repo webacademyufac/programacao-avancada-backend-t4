@@ -176,7 +176,7 @@ const dogObject = JSON.parse(dogJson)
 console.log(dogObject)
 
 // caso haja algum erro na sintaxe, não pode ser considerado um JSON válido
-const jsonErrado = '{"primeiro":"dado1","segundo":222,"terceiro":"dado3"}'
+//const jsonErrado = '{"primeiro":"dado1","segundo":222,"terceiro":"dado3}'
 // const jsonErradoObject = JSON.parse(jsonErrado)
 
 // Desafio 02: Armazene 5 dados numéricos em um vetor. Em seguida, copie os dados para um objeto com as propriedades n1, n2, n3, n4 e n5. Em outras palavras, cada um dos cinco números deve ir para cada uma das cinco variáveis. Em seguida, utilize destructuring para copiar os valores para 5 variáveis. Finalmente, construa um objeto JSON com os valores das variáveis.
@@ -217,7 +217,7 @@ if(n > 10){ // operadores relacionais: > < >= <= == !=
     console.log('Teste de entrada no if.')
 }
 const texto = '0'
-if(texto == 0) // o operador de tríplice igualdade compara o valor e o tipo dos conteúdos
+if(texto === 0) // o operador de tríplice igualdade compara o valor e o tipo dos conteúdos
     console.log("Os dados são iguais.")
 else if(true) 
     console.log('Segundo if - if aninhado.')
