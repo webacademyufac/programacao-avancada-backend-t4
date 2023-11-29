@@ -8,9 +8,7 @@ function hour(){
     console.log(`${hour}:${min}:${sec}`)
 }
 
-setTimeout(function() {
-    return 0
-},5000)
+setTimeout(hour,5000)
 setTimeout(hour,5000)
 setTimeout(hour,5000)
 
