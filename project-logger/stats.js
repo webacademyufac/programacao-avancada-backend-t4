@@ -1,4 +1,5 @@
 const os = require('os')
+const log = require('./logger')
 
 setInterval(()=>{
 
@@ -19,7 +20,7 @@ setInterval(()=>{
     console.log('******** Memory Stats ********')
     console.table(stats)
 
-    
+    log(`${JSON.stringify(stats)}\n`)
 
 }, 1000)
 
