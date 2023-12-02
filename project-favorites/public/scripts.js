@@ -18,8 +18,8 @@ load()
 function addElement({ name, url }) {
     
     const li = document.createElement('li')
-    const a = document.createElement("a")
-    const trash = document.createElement("span")
+    const a = document.createElement('a')
+    const trash = document.createElement('span')
 
     a.href = url
     a.innerHTML = name
@@ -55,7 +55,7 @@ form.addEventListener('submit', (event) => {
     if (!/^http/.test(url))
         return alert('Digite a url da maneira correta.')
 
-    addElementAndSendToApi({ name, url })
+    addElement({ name, url })
 
     input.value = ''
 
