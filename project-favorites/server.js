@@ -3,13 +3,18 @@ const fs = require('fs')
 const path = require('path')
 
 http.createServer((req, res) => {
-    if(req.url == '/')
-        fs.readFile(path.join(__dirname,'public','index.html'), (err, content) => {
-            if(err) throw err
-            res.end(content)
-        })
 
-    if(req.url == '/contato')
-        res.end('Contato')
+    const file = req.url === '/' ? 'index.html' : req.url
+    const filePath = path.join(__dirname,'public',file)
+
+    const extname = path.extname(filePath)
+    const allowedFilesTypes = [ '.html', '.css', '.js' ]
+    const allowed = allowedFilesTypes.find( item => item == extname )
+    if(!allowed) return
+
+    fs.readFile(filePath, (err, content) => {
+        if(err) throw err
+        res.end(content)
+    })
     
 }).listen(5000, ()=>console.log('O servidor está rodando!'))
