@@ -16,17 +16,22 @@ function writeFile(cb) {
 }
 
 http.createServer((req, res) => {
+    
     const { name, url, del } = URL.parse(req.url, true).query
+
+    res.writeHead(200, {
+        'Access-Control-Allow-Origin': '*'
+    })
 
     if (!name || !url)
         return res.end(JSON.stringify(data))
 
     if (del) {
-        data.urls.filter(item => item.url != url)
-        return writeFile( message => res.end(message) )
+        data.urls = data.urls.filter( item => item.url != url )
+        return writeFile( message => res.end(message+' Deletou.') )
     }
 
     data.urls.push( { name, url } )
-    return writeFile( message => res.end(message) )
+    return writeFile( message => res.end(message+' Inserção.') )
 
 }).listen(3000, () => console.log('Api rodando!'))
