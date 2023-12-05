@@ -1,16 +1,12 @@
 {
   "urls": [
     {
-      "name": "Web Academy",
-      "url": "https://webacademy.ufac.br"
-    },
-    {
-      "name": "Instagram",
-      "url": "https://..."
-    },
-    {
       "name": "Google",
-      "url": "https://..."
+      "url": "http://..."
+    },
+    {
+      "name": "Ufac",
+      "url": "https://ufac.br"
     }
   ]
 }

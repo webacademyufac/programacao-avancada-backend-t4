@@ -13,6 +13,17 @@ async function load() {
 
 load()
 
+async function addElementAndSendToApi({ name, url }){
+    // addElement joga para o front-end
+    addElement( { name, url } )
+
+    const response = await fetch(`http://127.0.0.1:3000?name=${name}&url=${url}`)
+
+    if(!response)
+            console.error(`Erro ao inserir: ${response.statusText}`)
+
+}
+
 function addElement({ name, url }) {
     
     const li = document.createElement('li')
@@ -32,9 +43,15 @@ function addElement({ name, url }) {
 
 }
 
-function removeElement(element, { name, url }) {
-    if(confirm('Tem certeza que deseja deletar?'))
+async function removeElement(element, { name, url }) {
+    if(confirm('Tem certeza que deseja deletar?')){
         element.parentNode.remove()
+
+        const response = await fetch(`http://127.0.0.1:3000?name=${name}&url=${url}&del=1`)
+
+        if(!response)
+            console.error(`Erro ao deletar: ${response.statusText}`)
+    }
 }
 
 form.addEventListener('submit', (event) => {
@@ -54,7 +71,7 @@ form.addEventListener('submit', (event) => {
     if (!/^http/.test(url))
         return alert('Digite a url da maneira correta.')
 
-    addElement({ name, url })
+    addElementAndSendToApi({ name, url })
 
     input.value = ''
 
