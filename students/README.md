@@ -1,2 +1,2 @@
-# Programação Avançada Back-end
-Repositório da disciplina de Programação Avançada Back-end da 3ª turma do Web Academy.
+# Programação Avançada Back-end - Códigos dos estudantes
+Crie uma pasta com seu nome e suba seus códigos de desafios e do projeto final com express e MongoDB (consulte o Google Classroom).
